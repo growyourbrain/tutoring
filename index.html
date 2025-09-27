@@ -10,12 +10,53 @@
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #333;
+      scroll-behavior: smooth; /* smooth scrolling */
     }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #b66dff;
+      z-index: 1000;
+    }
+    nav img {
+      height: 50px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #b66dff;
+    }
+    nav ul li a.active {
+      color: #ff6600; /* highlight color */
+      font-weight: bold;
+      border-bottom: 2px solid #ff6600;
+    }
+
+    /* Header */
     header {
       background: #b66dff;
       color: white;
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 6rem 2rem 4rem;
+      animation: fadeIn 1.5s ease;
     }
     header h1 {
       margin: 0;
@@ -23,43 +64,69 @@
     }
     header p {
       font-size: 1.2rem;
+      margin-top: 0.5rem;
     }
     header a {
       display: inline-block;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       padding: 0.7rem 1.5rem;
       background: white;
-      color: #4CAF50;
+      color: #b66dff;
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
     }
+    header a:hover {
+      background: #eee;
+      transform: scale(1.05);
+    }
+
+    /* Sections */
     section {
       padding: 3rem 2rem;
       max-width: 900px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s forwards;
     }
+    section:nth-of-type(1) { animation-delay: 0.3s; }
+    section:nth-of-type(2) { animation-delay: 0.6s; }
+    section:nth-of-type(3) { animation-delay: 0.9s; }
+    section:nth-of-type(4) { animation-delay: 1.2s; }
+
     h2 {
       text-align: center;
       margin-bottom: 1rem;
+      color: #b66dff;
     }
+
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1rem;
     }
     .service {
-      padding: 1rem;
+      padding: 1.5rem;
       background: #f4f4f4;
-      border-radius: 5px;
+      border-radius: 8px;
       text-align: center;
+      transition: transform 0.3s, background 0.3s;
     }
-    iframe {
+    .service:hover {
+      background: #eaeaea;
+      transform: translateY(-5px);
+    }
+
+    iframe,
+    .calendly-inline-widget {
       width: 100%;
-      height: 600px;
+      height: 700px;
       border: none;
       border-radius: 8px;
     }
+
     footer {
       background: #333;
       color: white;
@@ -67,58 +134,80 @@
       padding: 1rem;
     }
     footer a {
-      color: #4CAF50;
+      color: #b66dff;
       text-decoration: none;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- Navigation -->
+  <nav>
+    <a href="#top">
+      <img src="gyb.jpg" alt="Grow Your Brain Logo">
+    </a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header id="top">
     <h1>Grow Your Brain Tutoring</h1>
-    <p>Does your students homework look like a different language to you?</p>
+    <p>Does your student’s homework look like a different language to you?</p>
     <a href="#booking">Book a Session</a>
   </header>
 
+  <!-- About -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Hi, I’m Dori, I help students excel in education. I focus on building confidence and skills through engaging lessons tailored to each student’s needs.</p>
+    <p>Hi, I’m Dori. I help students excel in education by building confidence and skills through engaging lessons tailored to their needs.</p>
   </section>
 
+  <!-- Services -->
   <section id="services">
     <h2>Subjects I Tutor</h2>
     <div class="services">
       <div class="service">
         <h3>Motivate</h3>
-        <p>I use creative learning tools that will make your student hate homework a little less.</p>
+        <p>Creative learning tools that make homework less stressful.</p>
       </div>
       <div class="service">
         <h3>Educate</h3>
-        <p>Turning doomscrollers into reading nerds. </p>
+        <p>Turning doomscrollers into readers and problem solvers.</p>
       </div>
       <div class="service">
         <h3>Grow</h3>
-        <p>Better grades, no more homework hassle.</p>
+        <p>Better grades and more confidence—without the homework battles.</p>
       </div>
     </div>
   </section>
 
+  <!-- Booking -->
   <section id="booking">
     <h2>Book a Session</h2>
     <p style="text-align:center;">Choose a time that works best for you:</p>
-    <!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/dmanning-riversideunified?primary_color=b66dff" style="min-width:320px;height:700px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<!-- Calendly inline widget end -->
-    
-    <!-- Calendly embed (replace with your own link) -->
-    <iframe src="https://calendly.com/yourusername/30min"></iframe>
-
-    <!-- OR if you prefer Google Forms, replace iframe with: 
-    <iframe src="https://docs.google.com/forms/d/e/your-form-id/viewform?embedded=true"></iframe>
-    -->
+    <div class="calendly-inline-widget" 
+         data-url="https://calendly.com/dmanning-riversideunified?primary_color=b66dff" 
+         style="min-width:320px;height:700px;">
+    </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </section>
 
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact Me</h2>
     <p style="text-align:center;">Questions before booking? Reach out here:</p>
@@ -127,9 +216,36 @@
     </p>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Dev Rose Tutoring | Built with ❤️ | <a href="https://github.com/yourusername/yourrepo">GitHub</a></p>
+    <p>&copy; 2025 Grow Your Brain Tutoring | Built with ❤️ | 
+      <a href="https://github.com/yourusername/yourrepo">GitHub</a>
+    </p>
   </footer>
+
+  <script>
+    // Highlight active section link
+    const sections = document.querySelectorAll("section, header"); 
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80; // adjust for nav height
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
