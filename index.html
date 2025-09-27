@@ -12,7 +12,6 @@
       color: #333;
       scroll-behavior: smooth; /* smooth scrolling */
     }
-
     /* Navigation */
     nav {
       position: sticky;
@@ -44,12 +43,6 @@
     nav a:hover {
       color: #b66dff;
     }
-    nav ul li a.active {
-      color: #ff6600; /* highlight color */
-      font-weight: bold;
-      border-bottom: 2px solid #ff6600;
-    }
-
     /* Header */
     header {
       background: #b66dff;
@@ -81,7 +74,6 @@
       background: #eee;
       transform: scale(1.05);
     }
-
     /* Sections */
     section {
       padding: 3rem 2rem;
@@ -101,7 +93,6 @@
       margin-bottom: 1rem;
       color: #b66dff;
     }
-
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -118,7 +109,6 @@
       background: #eaeaea;
       transform: translateY(-5px);
     }
-
     iframe,
     .calendly-inline-widget {
       width: 100%;
@@ -126,7 +116,6 @@
       border: none;
       border-radius: 8px;
     }
-
     footer {
       background: #333;
       color: white;
@@ -137,7 +126,6 @@
       color: #b66dff;
       text-decoration: none;
     }
-
     /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -153,9 +141,7 @@
 
   <!-- Navigation -->
   <nav>
-    <a href="#top">
-      <img src="gyb.jpg" alt="Grow Your Brain Logo">
-    </a>
+    <img src="gyb.jpg" alt="Grow Your Brain Logo">
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -165,7 +151,7 @@
   </nav>
 
   <!-- Header -->
-  <header id="top">
+  <header>
     <h1>Grow Your Brain Tutoring</h1>
     <p>Does your student’s homework look like a different language to you?</p>
     <a href="#booking">Book a Session</a>
@@ -222,30 +208,6 @@
       <a href="https://github.com/yourusername/yourrepo">GitHub</a>
     </p>
   </footer>
-
-  <script>
-    // Highlight active section link
-    const sections = document.querySelectorAll("section, header"); 
-    const navLinks = document.querySelectorAll("nav ul li a");
-
-    window.addEventListener("scroll", () => {
-      let current = "";
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 80; // adjust for nav height
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("active");
-        }
-      });
-    });
-  </script>
 
 </body>
 </html>
