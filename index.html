@@ -10,7 +10,8 @@
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #333;
-      scroll-behavior: smooth; /* smooth scrolling */
+      scroll-behavior: smooth;
+      background: #fafafa;
     }
     /* Navigation */
     nav {
@@ -25,7 +26,8 @@
       z-index: 1000;
     }
     nav img {
-      height: 50px;
+      height: 55px;
+      animation: bounceIn 1.2s ease;
     }
     nav ul {
       list-style: none;
@@ -38,18 +40,33 @@
       text-decoration: none;
       color: #333;
       font-weight: bold;
+      position: relative;
       transition: color 0.3s;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background: #b66dff;
+      transition: width 0.3s;
     }
     nav a:hover {
       color: #b66dff;
     }
+    nav a:hover::after {
+      width: 100%;
+    }
+
     /* Header */
     header {
       background: #b66dff;
       color: white;
       text-align: center;
       padding: 6rem 2rem 4rem;
-      animation: fadeIn 1.5s ease;
+      animation: fadeSlideDown 1.5s ease;
     }
     header h1 {
       margin: 0;
@@ -74,6 +91,7 @@
       background: #eee;
       transform: scale(1.05);
     }
+
     /* Sections */
     section {
       padding: 3rem 2rem;
@@ -107,7 +125,7 @@
     }
     .service:hover {
       background: #eaeaea;
-      transform: translateY(-5px);
+      transform: scale(1.05);
     }
     iframe,
     .calendly-inline-widget {
@@ -126,14 +144,21 @@
       color: #b66dff;
       text-decoration: none;
     }
+
     /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.1); opacity: 1; }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
