@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Grow Your Brain Tutoring</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  />
   <style>
     body {
       margin: 0;
@@ -134,6 +138,94 @@
       border: none;
       border-radius: 8px;
     }
+
+    /* Contact "Take-a-Number" style */
+    :root {
+      --gray: #808080;
+      --gray-light: #d3d3d3;
+      --paper-color: #eff8fe;
+    }
+    .take-number-section {
+      padding: 3rem 2rem;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .take-number-section .paper {
+      position: relative;
+      padding: 10px;
+      width: 12rem;
+      min-height: 120px;
+      background: linear-gradient(135deg, var(--paper-color), 85%, var(--gray-light));
+      box-shadow: 1px 0 1px var(--gray);
+      text-align: center;
+      margin-bottom: 2rem;
+      animation: fadeIn 1s ease forwards;
+    }
+    .take-number-section .paper::before,
+    .take-number-section .paper::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gray);
+    }
+    .take-number-section .paper::before {
+      left: 5px;
+      top: 5px;
+    }
+    .take-number-section .paper::after {
+      right: 5px;
+      top: 5px;
+    }
+    .take-number-section .numbers {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      min-height: 11rem;
+      width: 100%;
+    }
+    .take-number-section .number {
+      position: relative;
+      flex: 1;
+      background: linear-gradient(to right, var(--paper-color), 80%, var(--gray-light));
+      border-top: 1px dashed var(--gray);
+      box-shadow: 1px 1px 1px var(--gray);
+      transform-origin: center top;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .take-number-section .number:hover {
+      transform: translateY(-10px);
+      background: #e0f0ff;
+    }
+    .take-number-section .link-wrapper {
+      position: absolute;
+      transform: rotate(90deg);
+      transform-origin: top left;
+      display: flex;
+      align-items: center;
+      margin-left: 1.7rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .take-number-section .link-wrapper i {
+      margin-right: 5px;
+      font-size: 1.1rem;
+    }
+    .take-number-section .link-wrapper a {
+      text-decoration-style: dashed;
+      font-family: sans-serif;
+      color: #333;
+      transition: color 0.3s;
+    }
+    .take-number-section .link-wrapper a:hover {
+      color: #b66dff;
+    }
+
+    /* Footer */
     footer {
       background: #333;
       color: white;
@@ -159,6 +251,10 @@
       50% { transform: scale(1.1); opacity: 1; }
       70% { transform: scale(0.9); }
       100% { transform: scale(1); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
@@ -218,13 +314,32 @@
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p style="text-align:center;">Questions before booking? Reach out here:</p>
-    <p style="text-align:center;">
-      Email: <a href="mailto:youremail@example.com">youremail@example.com</a>
-    </p>
+  <!-- Contact (Take-a-Number style) -->
+  <section id="contact" class="take-number-section">
+    <div class="paper">
+      <h2>Contact Me</h2>
+      <p>Pick your number and reach out!</p>
+    </div>
+    <ul class="numbers" role="list">
+      <li class="number" role="listitem">
+        <div class="link-wrapper">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:youremail@example.com">youremail@example.com</a>
+        </div>
+      </li>
+      <li class="number" role="listitem">
+        <div class="link-wrapper">
+          <i class="fab fa-twitter"></i>
+          <a href="https://twitter.com/yourhandle">@yourhandle</a>
+        </div>
+      </li>
+      <li class="number" role="listitem">
+        <div class="link-wrapper">
+          <i class="fab fa-instagram"></i>
+          <a href="https://instagram.com/yourhandle">@yourhandle</a>
+        </div>
+      </li>
+    </ul>
   </section>
 
   <!-- Footer -->
